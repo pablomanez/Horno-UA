@@ -5,7 +5,6 @@
 		<title>HORNO MOLÓN</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">	<!--	BOOTSTRAP 	-->
 		<link rel="stylesheet" type="text/css" href="hornocss.css">			<!--	MIO			-->
 		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -16,54 +15,58 @@
 		</header>
 		<div id="c_mandos" class="row m-0 pt-4">
 			<!-- INDICADORES -->
-			<div class="col-2">
-				<!--<div class="bg-success res-s"></div>-->
-				<img src="iconos/superior1.png" class="d-block m-0 m-auto py-2 w-50">
-				<img src="iconos/inferior1.png" class="d-block m-0 m-auto py-2 w-50">
-				<img src="iconos/grill1.png" class="d-block m-0 m-auto py-2 w-50">
-				<img src="iconos/fan1.png" class="d-block m-0 m-auto py-2 w-50">
+			<div class="col-3 row">
+				<div class="col-12 row justify-content-around">
+					<div class="col-3">
+						<img src="iconos/nuevos/superior1.png" class="ind" id="resS" onclick="resS();">
+					</div>
+					<div class="col-3">
+						<img src="iconos/nuevos/inferior1.png" class="ind" id="resI" onclick="resI();">
+					</div>
+				</div>
+				<div class="col-12 row justify-content-around pt-3">
+					<div class="col-3">
+						<img src="iconos/nuevos/grill1.png" class="ind" id="grill" onclick="grill();">
+					</div>
+					<div class="col-3">
+						<img src="iconos/nuevos/fan1.png" class="ind" id="fan" onclick="fan();">
+					</div>
+				</div>
 			</div>
 
-			<!-- INPUTS -->
-			<div class="col-10">
-				<!-- DATOS DEL HORNO -->
+			<!-- DATOS -->
+			<div class="col-9">
 				<div class="row">
 					<span class="col-4 align-items-center d-flex justify-content-center">
 						<span class="text-xl">80ºC</span>
-						<i class="fas fa-fire fa-4x pl-5"></i>
+						<i class="fas fa-fire fa-4x pl-5 text-danger"></i>
 					</span>
 
 					<div class="col-8">
 						<div class="row text-center">
-							<div class="col-5 row mb-3 border rounded">
-								<span class="col-12 p-2 font-weight-bold">TEMPERATURA EXTERIOR</span>
-								<span class="col-12 text-lg">
-									20ºC
-								</span>
+							<div class="col-12 row text-xl mb-3 justify-content-around">
+								<span class="col-5">13:02</span>
+								<span class="col-5">10/5/18</span>
 							</div>
-							<span class="col-1"></span>
-							<div class="col-5 row mb-3 border rounded">
-								<span class="col-12 p-2 font-weight-bold">9/5/2018</span>
-								<span class="col-12 text-lg">
-									<time>20:28</time>
-								</span>
+							<div class="col-12 row justify-content-around">
+								<div class="col-3 row mr-2 rounded border">
+									<span class="col-12 p-2 font-weight-bold">TEMPERATURA EXTERIOR</span>
+									<span class="col-12 text-lg">
+										20ºC
+									</span>
+								</div>
+								<div class="col-3 row rounded border">
+									<span class="col-12 p-2 font-weight-bold">CONSUMO</span>
+									<span class="col-12 text-lg">
+										30W
+									</span>
+								</div>
+								<div class="col-3 row rounded border d-flex align-items-center">
+									<span class="col-12 text-lg">
+										<i class="fas fa-lock"></i>
+									</span>
+								</div>
 							</div>
-							<span class="col-1"></span>
-
-							<div class="col-5 row border rounded">
-								<span class="col-12 p-2 font-weight-bold">CONSUMO</span>
-								<span class="col-12 text-lg">
-									30W
-								</span>
-							</div>
-							<span class="col-1"></span>
-							<div class="col-5 row border rounded d-flex align-items-center">
-								<span class="col-12 text-lg">
-									<i class="fas fa-lock"></i>
-								</span>
-							</div>
-							<span class="col-1"></span>
-
 						</div>
 					</div>
 
@@ -108,62 +111,57 @@
 						</div>
 						<span class="col-1"></span>
 					-->
-
 				</div>
-				<!-- TEMPERATURA/TIEMPO -->
-				<div class="row pt-5">
-					<span class="col-6 text-center">
-						<h2>TEMPERATURA</h2>
-					</span>
-					<span class="col-6 text-center">
-						<h2>TIEMPO</h2>
-					</span>
-					<!-- TEMPERATURA -->
-					<div class="row col-6 align-items-center">
-						<div class="col-6">
-							<div class="row justify-content-center">
-								<span class="col-1"></span>
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-up"></i></button>
-								<span class="col-2"></span>
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-double-up"></i></button>
-								<span class="col-1"></span>
-							</div>
+			</div>
 
-							<div class="row justify-content-center">
-								<span class="col-1"></span>
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-down"></i></button>
-								<span class="col-2"></span>
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-double-down"></i></button>
-								<span class="col-1"></span>
-							</div>
+			<!-- TEMPERATURA/TIEMPO -->
+			<div class="col-12 row pt-4 justify-content-around">
+				<!-- TEMPERATURA -->
+				<div class="col-6 row ">
+					<span class="col-12">
+						<h2 align="right">TEMPERATURA</h2>
+					</span>
+					<div class="col-12 row rounded align-items-center justify-content-between bg-danger p-2 m-1">
+						<button class="btn btn-tmp col-2"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
+						<button class="btn btn-tmp col-2"><i class="fas fa-minus"></i></button>
+
+						<div class="col-3">
+							<input class="form-control text-center" type="number" name="temperatura" min="0" value="0" align="center">
 						</div>
 
-						<div class="col-6">
-							<input type="number" name="temperatura" min="0" value="0">
+						<button class="btn btn-tmp col-2"><i class="fas fa-plus"></i></button>
+						<button class="btn btn-tmp col-2"><i class="fas fa-plus"></i> <i class="fas fa-plus"></i></button>
+					</div>
+					<div class="col-12 pt-2">
+						<div style="height: 35px" class="progress">
+							<div style="width: 1%;" class="progress-bar bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 					</div>
+				</div>
+				
+				<!-- TIEMPO -->
+				<div class="col-6 row ">
+					<span class="col-12">
+						<h2 align="left">TIEMPO</h2>
+					</span>
+					<div class="col-12 row rounded align-items-center justify-content-between bg-warning p-2 m-1">
+						<button class="btn btn-tmp col-2"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
+						<button class="btn btn-tmp col-2"><i class="fas fa-minus"></i></button>
 
-					<!-- TIEMPO -->
-					<div class="row col-6 bg-warning align-items-center">
-						<div class="col-6 text-center">
-							<input type="number" name="temperatura" min="0" value="0">
+						<div class="col-3">
+							<input class="form-control text-center" type="number" name="tiempo" min="0" value="0" align="center">
 						</div>
-						<div class="col-6">
-							<div class="row justify-content-center">
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-up"></i></button>
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-double-up"></i></button>
-							</div>
-							<div class="row justify-content-center">
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-down"></i></button>
-								<button class="btn btn-secondary col-4"><i class="fas fa-angle-double-down"></i></button>
-							</div>
+
+						<button class="btn btn-tmp col-2"><i class="fas fa-plus"></i></button>
+						<button class="btn btn-tmp col-2"><i class="fas fa-plus"></i> <i class="fas fa-plus"></i></button>
+					</div>
+					<div class="col-12 pt-2">
+						<div style="height: 35px" class="progress">
+							<div style="width: 1%;" class="progress-bar bg-warning" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 					</div>
-					<!--
-					<input type="number" name="tiempo" min="0">
-					-->
-
 				</div>
+
 			</div>
 		</div>
 		<!--
