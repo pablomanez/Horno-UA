@@ -15,77 +15,78 @@
 		</header>
 		<div id="c_mandos" class="row m-0 pt-4">
 			<!-- INDICADORES -->
-			<div class="col-3row">
-				<div class="col-12 row justify-content-around">
-					<div class="col-3">
+			<div class="col-sm-12 col-md-6 col-lg-5 col-xl-3 row align-items-center justify-content-center m-0 text-center">
+				<div class="col-12 row justify-content-around px-0">
+					<div class="col-4">
 						<img src="iconos/nuevos/superior1.png" alt="Resistencia superior" class="ind" id="resS" onclick="resS();">
 					</div>
-					<div class="col-3">
+					<div class="col-4">
 						<img src="iconos/nuevos/inferior1.png" alt="Resistencia inferior" class="ind" id="resI" onclick="resI();">
 					</div>
 				</div>
-				<div class="col-12 row justify-content-around pt-3">
-					<div class="col-3">
+				<div class="col-12 row justify-content-around pt-3 px-0">
+					<div class="col-4">
 						<img src="iconos/nuevos/grill1.png" alt="Grill" class="ind" id="grill" onclick="grill();">
 					</div>
-					<div class="col-3">
+					<div class="col-4">
 						<img src="iconos/nuevos/fan1.png" alt="Ventilador" class="ind" id="fan" onclick="fan();">
 					</div>
 				</div>
 			</div>
 
 			<!-- DATOS -->
-			<div class="col-9">
+			<div class="col-sm-12 col-md-6 col-lg-7 col-xl-9">
 				<div class="row">
-					<span class="col-4 align-items-center d-flex justify-content-center">
+					<span class="col-sm-12 col-xl-4 align-items-center d-flex justify-content-center">
 						<span class="text-xl">80ºC</span>
 						<i class="fas fa-fire fa-4x pl-5 text-danger"></i>
 					</span>
 
-					<div class="col-8 row text-center justify-content-end ml-2">
-							<div class="col-12 row text-xl mb-3 justify-content-around">
-								<span class="col-5">13:02</span>
-								<span class="col-5">10/5/18</span>
+					<div class="col-sm-12 col-xl-8 row text-center justify-content-center m-0">
+						<div class="col-xl-12 row text-xl mb-3 justify-content-around">
+							<span class="col-sm-5 col-md-12 col-lg-5">13:02</span>
+							<span class="col-sm-5 col-md-12 col-lg-5">10/5/18</span>
+						</div>
+						<div class="col-xl-12 row justify-content-around">
+							<div class="col-sm-12 col-md-4 row rounded border align-items-center justify-content-center">
+								<span class="col-sm-6 col-md-12 p-2 font-weight-bold">TEMPERATURA EXTERIOR</span>
+								<span class="col-sm-6 col-md-12 text-lg">
+									20ºC
+								</span>
 							</div>
-							<div class="col-12 row justify-content-around">
-								<div class="col-4 row rounded border">
-									<span class="col-12 p-2 font-weight-bold">TEMPERATURA EXTERIOR</span>
-									<span class="col-12 text-lg">
-										20ºC
-									</span>
-								</div>
-								<div class="col-3 row rounded border d-flex align-items-center">
-									<span class="col-12">
-										<i class="fas fa-lock fa-6x text-warning"></i>
-									</span>
-								</div>
-								<div class="col-4 row rounded border">
-									<span class="col-12 p-2 font-weight-bold">CONSUMO</span>
-									<span class="col-12 text-lg">
-										30W
-									</span>
-								</div>
+							<div class="col-sm-12 col-md-4 col-lg-3 row rounded border d-flex align-items-center my-2 my-md-0">
+								<span class="col-sm-12">
+									<i class="fas fa-lock fa-5x text-warning py-2"></i>
+								</span>
 							</div>
+							<div class="col-sm-12 col-md-4 row rounded border align-items-center justify-content-center">
+								<span class="col-sm-6 col-md-12 p-2 font-weight-bold">CONSUMO</span>
+								<span class="col-sm-6 col-md-12 text-lg">
+									30W
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- TEMPERATURA/TIEMPO -->
-			<div class="col-12 col-sm-12 row pt-4 justify-content-around">
-				<div class="col-6 row ">
-					<span class="col-12">
-						<h2 align="right">TEMPERATURA</h2>
+			<div class="col-sm-12 row pt-4 justify-content-around m-0">
+				<div class="col-sm-12 col-md-6 row">
+					<span class="col-sm-12">
+						<h2 align="center">TEMPERATURA</h2>
 					</span>
-					<div class="col-12 row rounded align-items-center justify-content-between bg-danger p-2 m-1">
-						<button class="btn btn-tmp col-2" onclick="tempMenos(1);"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
-						<button class="btn btn-tmp col-2" onclick="tempMenos(0);"><i class="fas fa-minus"></i></button>
 
-						<div class="col-3">
+					<div class="col-sm-12 row rounded align-items-center justify-content-around bg-danger p-2 m-1">
+						<button class="btn btn-tmp col-sm-4 col-xl-2" onclick="tempMenos(1);"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
+						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="tempMenos(0);"><i class="fas fa-minus"></i></button>
+
+						<div class="col-sm-9 col-xl-3">
 							<input class="form-control text-center" id="inputTemp" type="number" name="temperatura" min="0" value="0" align="center" onchange="updateTemp();">
 						</div>
 
-						<button class="btn btn-tmp col-2" onclick="tempMas(0);"><i class="fas fa-plus"></i></button>
-						<button class="btn btn-tmp col-2" onclick="tempMas(1);"><i class="fas fa-plus"></i> <i class="fas fa-plus"></i></button>
+						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="tempMas(0);"><i class="fas fa-plus"></i></button>
+						<button class="btn btn-tmp col-sm-4 col-xl-2" onclick="tempMas(1);"><i class="fas fa-plus"></i> <i class="fas fa-plus"></i></button>
 					</div>
 					<div class="col-12 pt-2">
 						<div style="height: 35px" class="progress">
@@ -93,21 +94,22 @@
 						</div>
 					</div>
 				</div>
-				
-				<div class="col-6 row ">
-					<span class="col-12">
-						<h2 align="left">TIEMPO</h2>
-					</span>
-					<div class="col-12 row rounded align-items-center justify-content-between bg-warning p-2 m-1">
-						<button class="btn btn-tmp col-2" onclick="timeMenos(1);"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
-						<button class="btn btn-tmp col-2" onclick="timeMenos(0);"><i class="fas fa-minus"></i></button>
 
-						<div class="col-3">
+				<div class="col-sm-12 col-md-6 row">
+					<span class="col-sm-12">
+						<h2 align="center">TIEMPO</h2>
+					</span>
+
+					<div class="col-sm-12 row rounded align-items-center justify-content-around bg-warning p-2 m-1">
+						<button class="btn btn-tmp col-sm-4 col-xl-2" onclick="timeMenos(1);"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
+						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="timeMenos(0);"><i class="fas fa-minus"></i></button>
+
+						<div class="col-sm-9 col-xl-3">
 							<input class="form-control text-center" id="inputTime" type="number" name="tiempo" min="0" value="0" align="center">
 						</div>
 
-						<button class="btn btn-tmp col-2" onclick="timeMas(0);"><i class="fas fa-plus"></i></button>
-						<button class="btn btn-tmp col-2" onclick="timeMas(1);"><i class="fas fa-plus"></i> <i class="fas fa-plus"></i></button>
+						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="timeMas(0);"><i class="fas fa-plus"></i></button>
+						<button class="btn btn-tmp col-sm-4 col-xl-2" onclick="timeMas(1);"><i class="fas fa-plus"></i> <i class="fas fa-plus"></i></button>
 					</div>
 					<div class="col-12 pt-2">
 						<div style="height: 35px" class="progress">
@@ -115,8 +117,8 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
+
 		</div>
 		<!--
 			<footer class="bg-danger d-block">

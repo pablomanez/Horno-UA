@@ -53,10 +53,26 @@ body > #c_mandos{
 	background-color: #474747 !important;
 }
 
+/*
+MINIMOS
+-------
+SM 	578
+MD 	768
+LG 	992
+XL	1200
+*/
 .ind{
 	width: 120px;
 	cursor: pointer;
 }
+/*
+@media (min-width: 576px) {
+	.ind{
+		width: 100px;
+	}
+}
+*/
+
 
 .ind:focus{
 	border: 5px solid #a00;
