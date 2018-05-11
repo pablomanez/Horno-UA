@@ -7,11 +7,11 @@ body{
 	font-family: 'Quicksand', sans-serif !important;
 	background-color: #333333 !important;
 }
-
+/*
 body > header{
 	height: 75px;
 }
-
+*/
 body > #c_mandos{
 	color: #ededed;
 }
@@ -56,6 +56,10 @@ body > #c_mandos{
 .ind{
 	width: 120px;
 	cursor: pointer;
+}
+
+.ind:focus{
+	border: 5px solid #a00;
 }
 
 
