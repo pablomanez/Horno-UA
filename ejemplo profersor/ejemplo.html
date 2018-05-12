@@ -152,6 +152,7 @@
 
 		// Consumo
 		function sensorConsumo (watios) {
+			console.log(watios);
 			document.getElementById("sensorConsumo").innerHTML = watios;
 		}
 		electro.consumo(sensorConsumo);
@@ -168,6 +169,8 @@
 
 		function paramRS (estado) {
 			document.getElementById("paramRS").innerHTML = estado ? "Encendido" : "Apagado";
+
+			console.log(estado);
 		}
 		electro.resistenciaSuperior(paramRS);
 		

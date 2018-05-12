@@ -47,14 +47,32 @@ body > #c_mandos{
 	font-size: 2.5em !important;
 }
 
+.text-bg{
+	color: #333333 !important;
+}
+
+@media (max-width: 578px) {
+	.d-none-sm{
+		display: none;
+	}
+}
+@media (max-width: 992px) {
+	.d-none-lg{
+		display: none;
+	}
+}
+
 .border{
+	/*
 	border-color: #9e9e9e !important;
 	border-width: 3px !important;
+	*/
+	border-width: 0px !important;
 	background-color: #474747 !important;
 }
 
 .display-5 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1.2;
 }
