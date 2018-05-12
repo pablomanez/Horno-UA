@@ -56,7 +56,7 @@
 							</div>
 							<div class="col-sm-12 col-md-4 col-lg-3 row rounded border d-flex align-items-center my-2 my-md-0">
 								<span class="col-sm-12">
-									<i class="fas fa-lock fa-5x text-warning py-2"></i>
+									<i class="fas fa-lock fa-5x text-warning py-2" id="lock_puerta"></i>
 								</span>
 							</div>
 							<div class="col-sm-12 col-md-4 row rounded border align-items-center justify-content-center">
@@ -81,8 +81,11 @@
 						<button class="btn btn-tmp col-sm-4 col-xl-2" onclick="tempMenos(1);"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
 						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="tempMenos(0);"><i class="fas fa-minus"></i></button>
 
-						<div class="col-sm-9 col-xl-3">
-							<input class="form-control text-center" id="inputTemp" type="number" name="temperatura" min="0" value="0" align="center" onchange="updateTemp();">
+						<div class="col-sm-9 col-xl-3 text-center">
+							<span class="display-5" id="inputTemp">0</span>
+							<!--
+							<input class="form-control text-center" id="inputTemp" type="number" name="temperatura" min="0" max="270" value="0" align="center" onchange="updateTemp();">
+							-->
 						</div>
 
 						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="tempMas(0);"><i class="fas fa-plus"></i></button>
@@ -90,8 +93,12 @@
 					</div>
 					<div class="col-12 pt-2">
 						<div style="height: 35px" class="progress">
-							<div style="width: 1%;" class="progress-bar bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							<div style="width: 0%;" id="progressTemp" class="progress-bar bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
+						<!--
+						<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+						-->
+
 					</div>
 				</div>
 
@@ -104,8 +111,11 @@
 						<button class="btn btn-tmp col-sm-4 col-xl-2" onclick="timeMenos(1);"><i class="fas fa-minus"></i> <i class="fas fa-minus"></i></button>
 						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="timeMenos(0);"><i class="fas fa-minus"></i></button>
 
-						<div class="col-sm-9 col-xl-3">
+						<div class="col-sm-9 col-xl-3 text-center">
+							<span class="display-5" id="inputTime">00:00</span>
+							<!--
 							<input class="form-control text-center" id="inputTime" type="number" name="tiempo" min="0" value="0" align="center">
+							-->
 						</div>
 
 						<button class="btn btn-tmp col-sm-4 col-xl-2 my-2 my-xl-0" onclick="timeMas(0);"><i class="fas fa-plus"></i></button>
@@ -113,7 +123,7 @@
 					</div>
 					<div class="col-12 pt-2">
 						<div style="height: 35px" class="progress">
-							<div style="width: 1%;" class="progress-bar bg-warning" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							<div style="width: 0%;" id="progressTime" class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 					</div>
 				</div>
@@ -126,6 +136,6 @@
 			</footer>
 		-->
 	</body>
-	<script src="hornojs.js"></script>
 	<script src="electro.js"></script>
+	<script src="hornojs.js"></script>
 </html>
