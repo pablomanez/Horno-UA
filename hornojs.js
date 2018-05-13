@@ -5,6 +5,15 @@ b_grill = false;
 b_fan = false;
 b_puerta = false;
 
+//BOTONES EXTRAS (LOS PRESET)
+b_eco = false;
+eco_num = -1;
+eco_it = 0;
+
+b_clean = false;
+b_meat = false;
+b_fish = false;
+
 //PARA EL ajustar()
 bar_tiempo = 0;
 bar_temperatura = 0;
@@ -12,6 +21,122 @@ bar_temperatura = 0;
 //EL TIEMPO MAXIMO SE MARCA COMO LA BARRA RELLENA DE TIEMPO
 TIME_MAX = 0;
 
+function reset(){
+	if(b_resS)	resS();
+	if(b_resI) resI();
+	if(b_grill) grill();
+	if(b_fan) fan();
+
+	let bar = document.querySelector('#inputTemp');
+	bar.innerText = 0;
+	updateTemp();
+
+	let time = document.querySelector('#inputTime');
+	time.innerText = '00:00:00';
+	updateTime();
+}
+
+//PRESETS
+function eco(){
+	let img = document.querySelector('#eco');
+
+	!b_eco? 	img.setAttribute('src','iconos/extras/eco2_a.png') : 
+				img.setAttribute('src','iconos/extras/eco1_a.png') ;
+
+	!b_eco? b_eco = true : b_eco = false;
+}
+function clean(b){
+	let img = document.querySelector('#clean');
+
+	!b_clean? 	img.setAttribute('src','iconos/extras/clean2_a.png') : 
+				img.setAttribute('src','iconos/extras/clean1_a.png') ;
+
+	//LIMPIEZA:
+	//TODOS LOS INDICADORES, 270ºC Y 2:30 MIN
+	if(!b_clean){
+		//ENCENDIDO
+		if(!b_resS)	resS();
+		if(!b_resI) resI();
+		if(!b_grill) grill();
+		if(!b_fan) fan();
+
+		let bar = document.querySelector('#inputTemp');
+		bar.innerText = 270;
+		updateTemp();
+
+		let time = document.querySelector('#inputTime');
+		time.innerText = '00:02:30';
+		updateTime();
+	}
+
+	!b_clean? b_clean = true : b_clean = false;
+
+	if(!b){
+		if(b_meat) meat(true);
+		if(b_fish) fish(true);
+		if(!b_clean) reset();
+	}
+}
+function meat(b){
+	let img = document.querySelector('#meat');
+
+	!b_meat? 	img.setAttribute('src','iconos/extras/carne2_a.png') : 
+				img.setAttribute('src','iconos/extras/carne1_a.png') ;
+
+	//RESISTENCIAS SUPERIOR E INFERIOR
+	//100ºC Y 20:00 MIN
+	if(!b_meat){
+		if(!b_resS)	resS();
+		if(!b_resI) resI();
+		if(b_grill) grill();
+		if(b_fan) fan();
+
+		let bar = document.querySelector('#inputTemp');
+		bar.innerText = 50;
+		updateTemp();
+
+		let time = document.querySelector('#inputTime');
+		time.innerText = '00:30:00';
+		updateTime();
+	}
+
+	!b_meat? b_meat = true : b_meat = false;
+
+	if(!b){
+		if(b_clean) clean(true);
+		if(b_fish) fish(true);
+		if(!b_meat) reset();
+	}
+}
+function fish(b){
+	let img = document.querySelector('#fish');
+
+	!b_fish? 	img.setAttribute('src','iconos/extras/pescado2_a.png') : 
+				img.setAttribute('src','iconos/extras/pescado1_a.png') ;
+
+	if(!b_fish){
+		if(!b_resS)	resS();
+		if(b_resI) resI();
+		if(b_grill) grill();
+		if(!b_fan) fan();
+
+		let bar = document.querySelector('#inputTemp');
+		bar.innerText = 70;
+		updateTemp();
+
+		let time = document.querySelector('#inputTime');
+		time.innerText = '00:20:00';
+		updateTime();
+	}
+
+	!b_fish? b_fish = true : b_fish = false;
+
+	if(!b){
+		if(b_meat) meat(true);
+		if(b_clean) clean(true);
+		if(!b_fish) reset();
+	}
+}
 
 //INDICADORES (TODAS LLAMAN A ajustar())
 function resS(){
@@ -79,7 +204,7 @@ function tempMas(num){
 	updateTemp();
 }
 
-	//ES QUIEN LLAMA A AJUSTAR
+//ES QUIEN LLAMA A AJUSTAR
 function updateTemp(){
 	let valor = document.querySelector('#inputTemp').innerText;
 	let progress = document.querySelector('#progressTemp');
@@ -281,10 +406,18 @@ electro.tempInterior(indTemInt);
 //CONSUMO
 function indConsumo(w){
 	let consumo = document.querySelector('#consumo');
+	let w_aux = w;
+	let p = 0.7;
 
-	consumo.innerText = w+' W';
+	if(b_eco){
+		w_aux *= p;	
+		consumo.innerText = w_aux.toFixed()+' W';
+	}
+	else{
+		consumo.innerText = w_aux+' W';
+	}
 
-	w>10? consumo.setAttribute('class','col-sm-6 col-md-12 text-lg text-danger font-weight-bold') : consumo.setAttribute('class','col-sm-6 col-md-12 text-lg');
+	w_aux>500? consumo.setAttribute('class','col-sm-6 col-md-12 text-lg text-danger font-weight-bold') : consumo.setAttribute('class','col-sm-6 col-md-12 text-lg');
 }
 electro.consumo(indConsumo);
 
