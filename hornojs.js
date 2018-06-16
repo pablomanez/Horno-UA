@@ -21,6 +21,45 @@ bar_temperatura = 0;
 //EL TIEMPO MAXIMO SE MARCA COMO LA BARRA RELLENA DE TIEMPO
 TIME_MAX = 0;
 
+
+menu_h1 = false;
+menu_h2 = false;
+//VISUAL
+function mh(num){
+	if(num == 1){
+		menu_h1? menu_h1 = false : menu_h1 = true;
+
+		/*
+		menu_h? 
+			document.querySelector("#mh1").innerText = 'TRUE' :
+			document.querySelector("#mh1").innerText = 'FALSE';
+		*/
+
+		menu_h1?
+			document.querySelector("#TempTime").setAttribute("style","") :
+			document.querySelector("#TempTime").setAttribute("style","display: none;") ;
+
+		if(menu_h1 && menu_h2) mh(2);
+	}
+	if(num == 2){
+		menu_h2? menu_h2 = false : menu_h2 = true;
+
+		/*
+		menu_h? 
+			document.querySelector("#mh1").innerText = 'TRUE' :
+			document.querySelector("#mh1").innerText = 'FALSE';
+		*/
+
+		menu_h2?
+			document.querySelector("#extras").setAttribute("style","") :
+			document.querySelector("#extras").setAttribute("style","display: none;") ;
+		
+		if(menu_h2 && menu_h1) mh(1);
+	}
+}
+
+
+//HORNO
 function reset(){
 	if(b_resS)	resS();
 	if(b_resI) resI();
@@ -248,7 +287,7 @@ function timeMenos(num){
 
 	let update = hora+':'+minutos+':'+segundos;
 
-	tiempo.innerText = update;
+	update>0? tiempo.innerText = update : tiempo.innerText = '00:00:00';
 
 	updateTime();
 }

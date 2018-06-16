@@ -10,26 +10,32 @@
 		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 	</head>
 	<body>
-		<header class="bg-danger text-center display-4">
-			<span class="d-block-inline">THE</span> <span class="d-block-inline">OVENIZATOR</span>
+		<header class="bg-danger row m-0 text-center">
+			<div class="col-12 display-4">
+				<span class="d-block-inline">THE</span> <span class="d-block-inline">OVENIZATOR</span>
+			</div>
+			<div class="col-12 justify-content-around p-1">
+				<button onclick="mh(1);" class="btn" id="mh1">TEMPERATURA/TIEMPO</button>
+				<button onclick="mh(2);" class="btn" id="mh2">EXTRAS</button>
+			</div>
 		</header>
 		<div id="c_mandos" class="row m-0 pt-4">
 			<!-- INDICADORES -->
 			<div class="col-sm-12 col-md-6 col-lg-5 col-xl-3 row align-items-center justify-content-center m-0 text-center">
 				<div class="col-12 row justify-content-around px-0">
 					<div class="col-4">
-						<img src="iconos/nuevos/superior1.png" alt="Resistencia superior" class="ind" id="resS" onclick="resS();">
+						<a href="javascript:resS();"><img src="iconos/nuevos/superior1.png" alt="Resistencia superior" class="ind" id="resS"></a>
 					</div>
 					<div class="col-4">
-						<img src="iconos/nuevos/inferior1.png" alt="Resistencia inferior" class="ind" id="resI" onclick="resI();">
+						<a href="javascript:resI();"><img src="iconos/nuevos/inferior1.png" alt="Resistencia inferior" class="ind" id="resI"></a>
 					</div>
 				</div>
 				<div class="col-12 row justify-content-around pt-3 px-0">
 					<div class="col-4">
-						<img src="iconos/nuevos/grill1.png" alt="Grill" class="ind" id="grill" onclick="grill();">
+						<a href="javascript:grill();"><img src="iconos/nuevos/grill1.png" alt="Grill" class="ind" id="grill"></a>
 					</div>
 					<div class="col-4">
-						<img src="iconos/nuevos/fan1.png" alt="Ventilador" class="ind" id="fan" onclick="fan();">
+						<a href="javascript:fan();"><img src="iconos/nuevos/fan1.png" alt="Ventilador" class="ind" id="fan"></a>
 					</div>
 				</div>
 			</div>
@@ -71,7 +77,7 @@
 			</div>
 
 			<!-- TEMPERATURA/TIEMPO -->
-			<div class="col-sm-12 row pt-4 justify-content-around m-0">
+			<div style="display: none;" class="col-sm-12 row pt-4 justify-content-around m-0" id="TempTime">
 				<div class="col-sm-12 col-md-6 row">
 					<div class="col-sm-12 text-center">
 						<h2 class="mb-0"><span class="d-none-sm">TEMPERATURA </span><i class="fab fa-gripfire"></i></h2>
@@ -131,22 +137,23 @@
 				</div>
 			</div>
 
-			<div class="col-12 row justify-content-around pt-5 m-0">
+			<!-- EXTRAS -->
+			<div style="display: none;" class="col-12 row justify-content-around pt-5 m-0" id="extras">
 				<div class="col-12">
 					<h2 class="text-center">CONFIGURACIONES</h2>
 					<hr class="bg-white m-0 p-0 mb-2 pb-1 rounded">
 				</div>
-				<div class="col-3 text-center">
-					<img src="iconos/extras/eco1_a.png" alt="Modo ecológico" class="ind" id="eco" onclick="eco();">
+				<div class="col-6 col-md-3 text-center">
+					<a href="javascript:eco();"><img src="iconos/extras/eco1_a.png" alt="Modo ecológico" class="ind" id="eco"></a>
 				</div>
-				<div class="col-3 text-center">
-					<img src="iconos/extras/clean1_a.png" alt="Limpieza del horno" class="ind" id="clean" onclick="clean(false);">
+				<div class="col-6 col-md-3 text-center">
+					<a href="javascript:clean(false);"><img src="iconos/extras/clean1_a.png" alt="Limpieza del horno" class="ind" id="clean"></a>
 				</div>
-				<div class="col-3 text-center">
-					<img src="iconos/extras/carne1_a.png" alt="Preparado para carne" class="ind" id="meat" onclick="meat(false);">
+				<div class="col-6 col-md-3 text-center">
+					<a href="javascript:meat(false);"><img src="iconos/extras/carne1_a.png" alt="Preparado para carne" class="ind" id="meat"></a>
 				</div>
-				<div class="col-3 text-center">
-					<img src="iconos/extras/pescado1_a.png" alt="Preparado para pescado" class="ind" id="fish" onclick="fish(false);">
+				<div class="col-6 col-md-3 text-center">
+					<a href="javascript:fish(false);"><img src="iconos/extras/pescado1_a.png" alt="Preparado para pescado" class="ind" id="fish"></a>
 				</div>
 				<div class="col-12">
 					<hr class="bg-white m-0 p-0 mb-2 pb-1 rounded">
